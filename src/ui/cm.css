@@ -289,7 +289,7 @@ div.tab-arrows span:active {
     background-color: #ddd;
 }
 
-/* ===== D.K SYSTEM 스타일 (2026-09-24) — 수락(연결 관리) 창. 정보·권한·버튼 구성은 그대로, 색과 모양만 D.K 다크+초록 ===== */
+/* ===== D.K SYSTEM style (2026-09-24): accept window. Same info, permissions and buttons; only colors and shapes changed ===== */
 html { var(bg): #09141b; var(gray-bg): #0d1c25; var(border): #29414c; var(text): #edf5f7; var(light-text): #a6bcc5; var(lighter-text): #7e949e; var(button): #a9ef57; var(accent): #c0ff79; var(hover-border): #c0ff79; }
 body { background: #09141b; color: #edf5f7; font-family: "Malgun Gothic", "Segoe UI", sans-serif; }
 header { background: #11232d; color: #edf5f7; border-bottom: #a9ef57 2px solid; }
