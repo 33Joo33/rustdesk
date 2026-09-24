@@ -41,14 +41,22 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Bake D.K server and key into config.rs
+      - name: Bake D.K server, key and branding
         shell: bash
         run: |
           f=libs/hbb_common/src/config.rs
+          # 1) 서버/키
           sed -i "s/rs-ny\.rustdesk\.com/${DK_SERVER}/g" "$f"
           sed -i "s#OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=#${DK_KEY}#g" "$f"
+          # 2) 앱 이름 (창 제목·폴더·로그) → D.K
+          sed -i 's/RwLock::new("RustDesk".to_owned())/RwLock::new("D.K SYSTEM 원격 서비스".to_owned())/' "$f"
+          # 3) Windows 실행 파일 속성 (파일 속성·작업관리자 설명)
+          sed -i 's/ProductName = "RustDesk"/ProductName = "D.K SYSTEM 원격 서비스"/' Cargo.toml
+          sed -i 's/FileDescription = "RustDesk Remote Desktop"/FileDescription = "D.K SYSTEM 원격 서비스"/' Cargo.toml
+          sed -i 's/OriginalFilename = "rustdesk.exe"/OriginalFilename = "DK-Remote-Support.exe"/' Cargo.toml
           echo "== after patch =="
-          grep -nE "RENDEZVOUS_SERVERS|RS_PUB_KEY" "$f" | head
+          grep -nE "RENDEZVOUS_SERVERS|RS_PUB_KEY|APP_NAME" "$f" | head
+          grep -nE "ProductName|FileDescription|OriginalFilename" Cargo.toml | head
 
       - name: Install LLVM and Clang
         uses: rustdesk-org/install-llvm-action-32bit@6aa7d9ad3df84dff01cd4596dd0fc880a7f47fce # no release tag; commit 2026-05-26
