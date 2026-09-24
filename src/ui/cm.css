@@ -288,3 +288,21 @@ div.tab-arrows span:active {
     opacity: 1;
     background-color: #ddd;
 }
+
+/* ===== D.K SYSTEM 스타일 (2026-09-24) — 수락(연결 관리) 창. 정보·권한·버튼 구성은 그대로, 색과 모양만 D.K 다크+초록 ===== */
+html { var(bg): #09141b; var(gray-bg): #0d1c25; var(border): #29414c; var(text): #edf5f7; var(light-text): #a6bcc5; var(lighter-text): #7e949e; var(button): #a9ef57; var(accent): #c0ff79; var(hover-border): #c0ff79; }
+body { background: #09141b; color: #edf5f7; font-family: "Malgun Gothic", "Segoe UI", sans-serif; }
+header { background: #11232d; color: #edf5f7; border-bottom: #a9ef57 2px solid; }
+header caption { color: #edf5f7; font-weight: bold; }
+div.left-panel { background: #09141b; }
+div.right-panel { background: #11232d; border-left: #29414c 1px solid; }
+div.icon { background: #a9ef57 !important; color: #142010 !important; border-radius: 22px; font-size: 60px; }
+div.id { color: #edf5f7; }
+div.left-panel > div { color: #a6bcc5; }
+div.permissions > div { background: #11232d; border: #29414c 1px solid; border-radius: 8px; }
+div.permissions > div.disabled { opacity: 0.35; }
+button.button { background: #a9ef57; color: #142010; border-color: #a9ef57; border-radius: 10px; height: 2.4em; font-weight: bold; }
+button.button:hover { border-color: #c0ff79; }
+button.button:active { background: #c0ff79; color: #142010; border-color: #c0ff79; }
+button#dismiss, button#disconnect { background: #b13246; color: #ffffff; border-color: #b13246; }
+button.elevate { background: #1f5c2e; color: #ffffff; border-color: #1f5c2e; }
